@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Title} from "ui/components/universal/Title";
+import style from 'styles/App.module.css'
+import s from 'styles/Title.module.css'
+import {Tasks} from "ui/components/Tasks";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className={style.appContainer}>
+            <div className={style.toDosContainer}>
+                <Title title='ToDos' className={s.title}/>
+                <Tasks/>
+            </div>
+
+        </div>
+    );
 }
 
 export default App;

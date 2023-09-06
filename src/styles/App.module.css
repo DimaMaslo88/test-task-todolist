@@ -1,0 +1,13 @@
+
+.appContainer {
+    background-color: yellow;
+    width: 100%;
+    height: 100vh;
+    margin-top: 40px;
+}
+
+.toDosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
