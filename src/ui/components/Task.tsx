@@ -1,29 +1,43 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {Checkbox} from "antd";
 import {CheckboxChangeEvent} from "antd/es/checkbox";
 import {EditableSpan} from "ui/components/universal/EditableSpan";
-import {useDispatch} from "react-redux";
-import {changeTaskStatus, changeTaskTitle} from "bll/actions/tasksActions";
+import {useDispatch, useSelector} from "react-redux";
+import {changeTaskStatus, changeTaskTitle, filterCheckedItems, setCheckedItems} from "bll/actions/tasksActions";
+import {selectCheckedItems} from "bll/selectors";
+
 
 type TaskComponentType = {
-    taskId:string
+    taskId: string
     title: string
     isDone: boolean
 }
-export const Task = ({taskId,title, isDone}: TaskComponentType) => {
+export const Task = ({taskId, title, isDone}: TaskComponentType) => {
     const dispatch = useDispatch()
-    const onChange = (e: CheckboxChangeEvent) => {
-       dispatch(changeTaskStatus(taskId,e.target.checked))
-    };
-    const onChangeHandler = ( newValue: string) => {
+    const items = useSelector(selectCheckedItems)
+    // const onChange = (e: CheckboxChangeEvent) => {
+    //     dispatch(changeTaskStatus(taskId, e.target.checked))
+    // };
+    const changeCheckedItems = (e:CheckboxChangeEvent)=>{
+if(e.target.checked){
+    dispatch(changeTaskStatus(taskId, e.target.checked))
+    dispatch(setCheckedItems([e.target.value]))
+}else{
+    dispatch(changeTaskStatus(taskId, e.target.checked))
+    dispatch(filterCheckedItems(items.filter(item=>item !== e.target.value)))
+}
+    }
+
+    const onChangeHandler = (newValue: string) => {
         dispatch(changeTaskTitle(taskId, newValue))
     }
     return (
         <div>
             <Checkbox
                 checked={isDone}
-                onChange={onChange}/>
-            <EditableSpan value={title} onChange={onChangeHandler}/>
+                value={taskId}
+                onChange={changeCheckedItems}/>
+            <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
         </div>
     );
 };
