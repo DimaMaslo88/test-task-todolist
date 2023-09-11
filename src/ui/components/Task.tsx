@@ -5,7 +5,7 @@ import {EditableSpan} from "ui/components/universal/EditableSpan";
 import {useDispatch, useSelector} from "react-redux";
 import {changeTaskStatus, changeTaskTitle, filterCheckedItems, setCheckedItems} from "bll/actions/tasksActions";
 import {selectCheckedItems} from "bll/selectors";
-
+import style from 'styles/Tasks.module.css'
 
 type TaskComponentType = {
     taskId: string
@@ -32,12 +32,18 @@ if(e.target.checked){
         dispatch(changeTaskTitle(taskId, newValue))
     }
     return (
-        <div>
-            <Checkbox
-                checked={isDone}
-                value={taskId}
-                onChange={changeCheckedItems}/>
-            <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
+        <div className={style.task}>
+            <div className={style.checkbox}>
+                <Checkbox
+                    checked={isDone}
+                    value={taskId}
+                    onChange={changeCheckedItems}/>
+            </div>
+
+            <div className={style.editableSpan}>
+                <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
+            </div>
+
         </div>
     );
 };

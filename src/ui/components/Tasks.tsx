@@ -81,8 +81,8 @@ export const Tasks = () => {
             <div className={style.taskBlock}>
                 {filterTasks.map(
                     ({id, title, isDone}: TaskType) => (
-                        <ul key={id}>
-                            <li>
+                        <ul key={id} >
+                            <li className={  style.li}>
                                 <Task key={id} taskId={id} title={title} isDone={isDone}/>
                             </li>
 
@@ -94,7 +94,10 @@ export const Tasks = () => {
             </div>
             {/* создать универсальную кнопку */}
             <div className={style.buttonContainer}>
-                {checkedItems.length} items left
+                <div style={{color:'grey'}}>
+                      {checkedItems.length} items left
+                </div>
+
                 <button onClick={onAllClickHandler}
                         className={filters === 'all' ? style.activeBtn : style.notActiveBtn}>
                     All
@@ -107,7 +110,7 @@ export const Tasks = () => {
                         className={filters === 'completed' ? style.activeBtn : style.notActiveBtn}>
                     Completed
                 </button>
-                <button onClick={clearFilterHandler}>Clear completed</button>
+                <button onClick={clearFilterHandler} className={style.buttonFilter} >Clear completed</button>
             </div>
 
         </div>

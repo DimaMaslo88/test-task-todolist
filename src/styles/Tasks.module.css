@@ -1,41 +1,77 @@
-.tasksContainer{
+.tasksContainer {
     display: flex;
     flex-direction: column;
-   height: 100%;
+    height: 100%;
     width: 70%;
 
     position: relative;
     z-index: 50;
 
 }
-.searchContainer{
+
+.searchContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.taskBlock{
+
+.taskBlock {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color:white;
+    background-color: white;
     margin-top: 20px;
+    margin-bottom: 10px;
 
 }
-.buttonContainer{
+.li{
+    height: 45px;
+    list-style-type:none;
+    line-height: 1.8;
+    border: 1px solid lightgrey;
+    box-shadow: 5px 5px 5px lightslategray;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+
+}
+.checkbox{
+    margin-left: 20px;
+}
+.editableSpan {
+    margin-left: 20px;
+}
+
+.buttonContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 20px;
 }
 
-.activeBtn{
+.activeBtn {
     border: none;
-    color:white;
-background: cornflowerblue;
+    color: white;
+    background: cornflowerblue;
+    cursor: pointer;
 }
-.notActiveBtn{
+
+.notActiveBtn {
     border: none;
     background: white;
     opacity: 0.5;
+}
+
+.buttonFilter {
+    border: none;
+    cursor: pointer;
+    background-color: #8cafee;
+    color: white;
+}
+
+.buttonFilter:active {
+    background-color: #e73232;
 }
 
