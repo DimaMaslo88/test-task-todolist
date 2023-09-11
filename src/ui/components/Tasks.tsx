@@ -107,8 +107,9 @@ export const Tasks = () => {
                         className={filters === 'completed' ? style.activeBtn : style.notActiveBtn}>
                     Completed
                 </button>
+                <button onClick={clearFilterHandler}>Clear completed</button>
             </div>
-            <button onClick={clearFilterHandler}>Clear completed</button>
+
         </div>
     );
 };
