@@ -1,2 +1,2 @@
 Тестовое задание реализовано на React, с применением Redux.
-Демо Версия
+dimamaslo88.github.io/test-task-todolist/
