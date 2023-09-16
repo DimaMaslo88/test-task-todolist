@@ -1,0 +1,24 @@
+.tooltipContainer {
+    position: relative;
+    display: flex;
+}
+.tooltipContainer:hover{
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    width: 280px;
+    padding: 4px 12px;
+    margin-left: calc(100%);
+    justify-content: center;
+    color: #6c6868;
+    background-color:whitesmoke;
+    border-radius: 12px ;
+    text-align: center;
+    white-space: pre-line;
+    font-weight: 400 ;
+    pointer-events: none;
+    opacity: 0.8;
+    font-size: 15px;
+}

@@ -25,6 +25,6 @@ export const EditableSpan =({value,onChange,status}:EditableSpanType)=>{
     }
 
     return editMode
-        ? <input value={title} onChange={changeTitle}   onBlur={activateViewMode} />
+        ? <input value={title} onChange={changeTitle}    onBlur={activateViewMode} />
         : <span className={status? style.editableSpanTrue:''} onDoubleClick={activateEditMode}>{value}</span>
 }

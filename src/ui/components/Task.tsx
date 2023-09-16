@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeTaskStatus, changeTaskTitle, filterCheckedItems, setCheckedItems} from "bll/actions/tasksActions";
 import {selectCheckedItems} from "bll/selectors";
 import style from 'styles/Tasks.module.css'
+import {ToolTip} from "ui/components/tooltip/ToolTip";
 
 type TaskComponentType = {
     taskId: string
@@ -18,14 +19,14 @@ export const Task = ({taskId, title, isDone}: TaskComponentType) => {
     // const onChange = (e: CheckboxChangeEvent) => {
     //     dispatch(changeTaskStatus(taskId, e.target.checked))
     // };
-    const changeCheckedItems = (e:CheckboxChangeEvent)=>{
-if(e.target.checked){
-    dispatch(changeTaskStatus(taskId, e.target.checked))
-    dispatch(setCheckedItems([e.target.value]))
-}else{
-    dispatch(changeTaskStatus(taskId, e.target.checked))
-    dispatch(filterCheckedItems(items.filter(item=>item !== e.target.value)))
-}
+    const changeCheckedItems = (e: CheckboxChangeEvent) => {
+        if (e.target.checked) {
+            dispatch(changeTaskStatus(taskId, e.target.checked))
+            dispatch(setCheckedItems([e.target.value]))
+        } else {
+            dispatch(changeTaskStatus(taskId, e.target.checked))
+            dispatch(filterCheckedItems(items.filter(item => item !== e.target.value)))
+        }
     }
 
     const onChangeHandler = (newValue: string) => {
@@ -39,11 +40,11 @@ if(e.target.checked){
                     value={taskId}
                     onChange={changeCheckedItems}/>
             </div>
-
-            <div className={style.editableSpan}>
-                <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
-            </div>
-
+            <ToolTip text='двойной клик,для изменения заголовка'>
+                <div className={style.editableSpan}>
+                    <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
+                </div>
+            </ToolTip>
         </div>
     );
 };
