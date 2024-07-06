@@ -9,6 +9,8 @@
 
 .toDosContainer {
     display: flex;
+    background-color: aliceblue;
+    border-radius: 5px;
     flex-direction: column;
     align-items: center;
     width: 50%;

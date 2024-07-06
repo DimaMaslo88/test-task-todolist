@@ -19,15 +19,17 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: white;
     margin-top: 20px;
     margin-bottom: 10px;
 
 }
-.li{
-    height: 45px;
-    list-style-type:none;
+
+.li {
+    height: auto;
+    word-break:break-all;
+    list-style-type: none;
     line-height: 1.8;
+    background-color: white;
     border: 1px solid lightgrey;
     box-shadow: 5px 5px 5px lightslategray;
 }
@@ -37,10 +39,12 @@
     flex-direction: row;
 
 }
-.checkbox{
+
+.checkbox {
 
     margin-left: 20px;
 }
+
 .editableSpan {
     margin-left: 20px;
 }
