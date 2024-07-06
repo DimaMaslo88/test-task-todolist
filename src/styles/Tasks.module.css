@@ -23,9 +23,15 @@
     margin-bottom: 10px;
 
 }
+.ul{
+    display: flex;
+    flex-direction: row;
+
+}
 
 .li {
     height: auto;
+    width: 100vh;
     word-break:break-all;
     list-style-type: none;
     line-height: 1.8;

@@ -7,6 +7,7 @@ import {changeTaskStatus, changeTaskTitle, filterCheckedItems, setCheckedItems} 
 import {selectCheckedItems} from "bll/selectors";
 import style from 'styles/Tasks.module.css'
 import {ToolTip} from "ui/components/tooltip/ToolTip";
+import {DeleteOutlined} from "@ant-design/icons";
 
 type TaskComponentType = {
     taskId: string
@@ -43,6 +44,7 @@ export const Task = ({taskId, title, isDone}: TaskComponentType) => {
                     <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
                 </div>
             </ToolTip>
+
         </div>
     );
 };

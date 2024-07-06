@@ -11,6 +11,7 @@ import {
 } from "bll/actions/tasksActions";
 import style from 'styles/Tasks.module.css'
 import s from 'styles/input.module.css'
+import {DeleteOutlined} from "@ant-design/icons";
 
 export const Tasks = () => {
     const dispatch = useDispatch()
@@ -80,7 +81,7 @@ export const Tasks = () => {
             <div className={style.taskBlock}>
                 {filterTasks.map(
                     ({id, title, isDone}: TaskType) => (
-                        <ul key={id} >
+                        <ul key={id}  className = {style.ul}>
                             <li className={style.li}>
                                 <Task key={id} taskId={id} title={title} isDone={isDone}/>
                             </li>
