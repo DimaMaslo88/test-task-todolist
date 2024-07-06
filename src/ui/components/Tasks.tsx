@@ -5,10 +5,9 @@ import {TaskType} from "bll/reducers/tasksReducer";
 import {Task} from "ui/components/Task";
 import {
     addTask,
-    changeTaskStatus,
     filterCheckedItems,
     filterTasksByStatus,
-    removeTasksStatus, setCheckedItems
+    removeTasksStatus,
 } from "bll/actions/tasksActions";
 import style from 'styles/Tasks.module.css'
 import s from 'styles/input.module.css'
@@ -82,7 +81,7 @@ export const Tasks = () => {
                 {filterTasks.map(
                     ({id, title, isDone}: TaskType) => (
                         <ul key={id} >
-                            <li className={  style.li}>
+                            <li className={style.li}>
                                 <Task key={id} taskId={id} title={title} isDone={isDone}/>
                             </li>
 

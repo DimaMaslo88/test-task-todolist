@@ -38,6 +38,7 @@
 
 }
 .checkbox{
+
     margin-left: 20px;
 }
 .editableSpan {
@@ -53,6 +54,7 @@
 
 .activeBtn {
     border: none;
+    border-radius: 5px;
     color: white;
     background: cornflowerblue;
     cursor: pointer;
@@ -66,6 +68,7 @@
 
 .buttonFilter {
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     background-color: #8cafee;
     color: white;

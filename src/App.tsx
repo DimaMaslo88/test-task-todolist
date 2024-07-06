@@ -8,7 +8,7 @@ function App() {
     return (
         <div className={style.appContainer}>
             <div className={style.toDosContainer}>
-                <Title title='ToDos' className={s.title}/>
+                <Title title='Todos' className={s.title}/>
                 <Tasks/>
             </div>
 

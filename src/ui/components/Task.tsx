@@ -40,7 +40,7 @@ export const Task = ({taskId, title, isDone}: TaskComponentType) => {
                     value={taskId}
                     onChange={changeCheckedItems}/>
             </div>
-            <ToolTip text='двойной клик,для изменения заголовка'>
+            <ToolTip text='Двойной клик,для изменения заголовка'>
                 <div className={style.editableSpan}>
                     <EditableSpan value={title} onChange={onChangeHandler} status={isDone}/>
                 </div>
