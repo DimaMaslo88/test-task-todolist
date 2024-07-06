@@ -1,5 +1,5 @@
 import {TasksReducer, TasksStateType} from "bll/reducers/tasksReducer";
-import {addTask, changeTaskTitle, removeTasksStatus} from "bll/actions/tasksActions";
+import {addTask, changeTaskStatus, changeTaskTitle, removeTasksStatus} from "bll/actions/tasksActions";
 
 let startState : TasksStateType
 beforeEach(() => {
@@ -34,3 +34,10 @@ test(' task-title should be changed correctly ', () => {
     expect(endState.tasks[0].title).toBe('Мое тестовое  задание');
 
 });
+test(' task-status should be changed correctly ', () => {
+    const action = changeTaskStatus('1',true);
+    const endState = TasksReducer(startState, action)
+    expect(endState.tasks[0].isDone).toBe(true);
+
+});
+
