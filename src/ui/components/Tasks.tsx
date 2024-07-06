@@ -65,7 +65,7 @@ export const Tasks = () => {
         <div className={style.tasksContainer}>
             <div className={style.searchContainer}>
                 <input
-                    placeholder='enter task'
+                    placeholder='needs to be done'
                     value={value}
                     onChange={onChangeHandler}
                     onKeyDown={onKeyDownHandler}
