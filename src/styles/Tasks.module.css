@@ -62,6 +62,7 @@
 
 .notActiveBtn {
     border: none;
+    cursor: pointer;
     background: white;
     opacity: 0.5;
 }

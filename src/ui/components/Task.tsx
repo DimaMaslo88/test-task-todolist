@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import {Checkbox} from "antd";
 import {CheckboxChangeEvent} from "antd/es/checkbox";
 import {EditableSpan} from "ui/components/universal/EditableSpan";
@@ -16,9 +16,7 @@ type TaskComponentType = {
 export const Task = ({taskId, title, isDone}: TaskComponentType) => {
     const dispatch = useDispatch()
     const items = useSelector(selectCheckedItems)
-    // const onChange = (e: CheckboxChangeEvent) => {
-    //     dispatch(changeTaskStatus(taskId, e.target.checked))
-    // };
+
     const changeCheckedItems = (e: CheckboxChangeEvent) => {
         if (e.target.checked) {
             dispatch(changeTaskStatus(taskId, e.target.checked))
