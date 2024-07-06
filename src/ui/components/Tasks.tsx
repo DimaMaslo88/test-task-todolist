@@ -75,7 +75,7 @@ export const Tasks = () => {
                     disabled={!rightValue}
                     onClick={addTaskHandler}
                     className={rightValue ? style.activeBtn : style.notActiveBtn}
-                >Add Task
+                >Add
                 </button>
             </div>
             <div className={style.taskBlock}>
