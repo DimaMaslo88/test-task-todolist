@@ -4,8 +4,10 @@ import style from 'styles/App.module.css'
 import s from 'styles/Title.module.css'
 import {Tasks} from "ui/components/Tasks";
 
+
 function App() {
     return (
+
         <div className={style.appContainer}>
             <div className={style.toDosContainer}>
                 <Title title='Todos' className={s.title}/>
@@ -13,6 +15,7 @@ function App() {
             </div>
 
         </div>
+
     );
 }
 

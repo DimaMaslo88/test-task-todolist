@@ -47,17 +47,17 @@
 
 .task {
     display: flex;
-    flex-direction: row;
+    align-items: center;
 
 }
 
 .checkbox {
-
     margin-left: 20px;
 }
 
 .editableSpan {
     margin-left: 20px;
+    padding: 5px;
 }
 
 .buttonContainer {
@@ -90,8 +90,12 @@
     color: white;
 }
 
-.buttonFilter:active {
+.noButtonFilter {
     background-color: #e73232;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
 }
 
 .icon {
@@ -99,5 +103,10 @@
     font-size: 25px;
     color: #8cafee;
 
+}
+
+.icon:hover {
+    font-size: 28px;
+    color: #e73232;
 }
 

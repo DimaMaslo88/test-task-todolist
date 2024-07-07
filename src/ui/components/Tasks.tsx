@@ -11,7 +11,7 @@ import {
 } from "bll/actions/tasksActions";
 import style from 'styles/Tasks.module.css'
 import s from 'styles/input.module.css'
-import {DeleteOutlined, DeleteTwoTone} from "@ant-design/icons";
+import {DeleteOutlined} from "@ant-design/icons";
 import {ToolTip} from "ui/components/tooltip/ToolTip";
 
 export const Tasks = () => {
@@ -116,7 +116,7 @@ export const Tasks = () => {
                         className={filters === 'completed' ? style.activeBtn : style.notActiveBtn}>
                     Completed
                 </button>
-                <button onClick={clearFilterHandler} className={style.buttonFilter}>Clear completed</button>
+                <button onClick={clearFilterHandler} className={checkedItems.length === 0?style.noButtonFilter:style.buttonFilter}>Clear completed</button>
             </div>
 
         </div>

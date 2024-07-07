@@ -1,5 +1,5 @@
 import React from 'react';
-import {Checkbox} from "antd";
+
 import {CheckboxChangeEvent} from "antd/es/checkbox";
 import {EditableSpan} from "ui/components/universal/EditableSpan";
 import {useDispatch, useSelector} from "react-redux";
@@ -7,7 +7,8 @@ import {changeTaskStatus, changeTaskTitle, filterCheckedItems, setCheckedItems} 
 import {selectCheckedItems} from "bll/selectors";
 import style from 'styles/Tasks.module.css'
 import {ToolTip} from "ui/components/tooltip/ToolTip";
-import {DeleteOutlined} from "@ant-design/icons";
+import {Checkbox} from "antd";
+
 
 type TaskComponentType = {
     taskId: string
