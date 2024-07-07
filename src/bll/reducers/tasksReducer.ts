@@ -2,7 +2,7 @@ import {
     AddTaskType,
     ChangeTaskStatusType,
     ChangeTaskType, FilterCheckedItemsType,
-    FilterTasksByStatusType, RemoveTasksStatusType,
+    FilterTasksByStatusType, RemoveTasksStatusType, RemoveTaskType,
     SetCheckedItemsType
 } from "bll/actions/tasksActions";
 import {v1} from "uuid";
@@ -38,6 +38,7 @@ export type TasksActionType = AddTaskType
     | SetCheckedItemsType
     | FilterCheckedItemsType
     | RemoveTasksStatusType
+    | RemoveTaskType
 export const TasksReducer = (state: TasksStateType = tasksState, action: TasksActionType): TasksStateType => {
     switch (action.type) {
         case "ADD-TASK": {
@@ -73,8 +74,11 @@ export const TasksReducer = (state: TasksStateType = tasksState, action: TasksAc
         case "FILTER-CHECKED-ITEMS": {
             return {...state, checkedId: action.filterCheckedId}
         }
-        case "REMOVE-TASKS-STATUS":{
-            return {...state,tasks: state.tasks.map(task=>task?{...task,isDone:action.remove}:task)}
+        case "REMOVE-TASKS-STATUS": {
+            return {...state, tasks: state.tasks.map(task => task ? {...task, isDone: action.remove} : task)}
+        }
+        case "REMOVE-TASK":{
+            return {...state,tasks:state.tasks.filter(task=>task.id !== action.id)}
         }
         default:
             return state

@@ -52,4 +52,10 @@ export const removeTasksStatus =(remove:boolean)=>{
        remove
    } as const
 }
-
+export type RemoveTaskType = ReturnType<typeof removeTask>
+export const removeTask =(id:string)=>{
+    return {
+        type:'REMOVE-TASK',
+        id
+    } as const
+}

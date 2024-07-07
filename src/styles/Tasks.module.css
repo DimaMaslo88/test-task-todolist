@@ -94,3 +94,10 @@
     background-color: #e73232;
 }
 
+.icon {
+    cursor: pointer;
+    font-size: 25px;
+    color: #8cafee;
+
+}
+

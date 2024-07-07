@@ -6,12 +6,13 @@ import {Task} from "ui/components/Task";
 import {
     addTask,
     filterCheckedItems,
-    filterTasksByStatus,
+    filterTasksByStatus, removeTask,
     removeTasksStatus,
 } from "bll/actions/tasksActions";
 import style from 'styles/Tasks.module.css'
 import s from 'styles/input.module.css'
 import {DeleteOutlined, DeleteTwoTone} from "@ant-design/icons";
+import {ToolTip} from "ui/components/tooltip/ToolTip";
 
 export const Tasks = () => {
     const dispatch = useDispatch()
@@ -19,7 +20,10 @@ export const Tasks = () => {
     const filters = useSelector(selectFilter)
     const checkedItems = useSelector(selectCheckedItems)
     const [value, setValue] = useState<string>('')
-
+    const removeTaskHandler = (id: string) => {
+        dispatch(removeTask(id))
+        dispatch(filterCheckedItems(checkedItems.filter(item => item !== id)))
+    }
     const rightValue = value.trim()
     let filterTasks = tasks
     if (filters === 'active') {
@@ -81,11 +85,13 @@ export const Tasks = () => {
             <div className={style.taskBlock}>
                 {filterTasks.map(
                     ({id, title, isDone}: TaskType) => (
-                        <ul key={id}  className = {style.ul}>
+                        <ul key={id} className={style.ul}>
                             <li className={style.li}>
                                 <Task key={id} taskId={id} title={title} isDone={isDone}/>
                             </li>
-                            <DeleteTwoTone />
+                            <ToolTip text="Удалить задание">
+                                <DeleteOutlined className={style.icon} onClick={() => removeTaskHandler(id)}/>
+                            </ToolTip>
                         </ul>
 
 
@@ -94,8 +100,8 @@ export const Tasks = () => {
             </div>
             {/* создать универсальную кнопку */}
             <div className={style.buttonContainer}>
-                <div style={{color:'grey'}}>
-                      {checkedItems.length} items left
+                <div style={{color: 'grey'}}>
+                    {checkedItems.length} items left
                 </div>
 
                 <button onClick={onAllClickHandler}
@@ -110,7 +116,7 @@ export const Tasks = () => {
                         className={filters === 'completed' ? style.activeBtn : style.notActiveBtn}>
                     Completed
                 </button>
-                <button onClick={clearFilterHandler} className={style.buttonFilter} >Clear completed</button>
+                <button onClick={clearFilterHandler} className={style.buttonFilter}>Clear completed</button>
             </div>
 
         </div>
