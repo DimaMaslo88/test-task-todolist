@@ -11,7 +11,7 @@ import {
 } from "bll/actions/tasksActions";
 import style from 'styles/Tasks.module.css'
 import s from 'styles/input.module.css'
-import {DeleteOutlined} from "@ant-design/icons";
+import {DeleteOutlined, DeleteTwoTone} from "@ant-design/icons";
 
 export const Tasks = () => {
     const dispatch = useDispatch()
@@ -85,7 +85,7 @@ export const Tasks = () => {
                             <li className={style.li}>
                                 <Task key={id} taskId={id} title={title} isDone={isDone}/>
                             </li>
-
+                            <DeleteTwoTone />
                         </ul>
 
 
