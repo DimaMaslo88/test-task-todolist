@@ -11,7 +11,7 @@ export const ToolTip = ({children,text}:PropsType) => {
     const onMouseEnterHandler = ()=>{
         toolRef.current = setTimeout(()=>{
             setOpenToolTip(true)
-        },500)
+        },300)
     }
     const onMouseLeaveHandler =()=>{
         clearTimeout(toolRef.current)
